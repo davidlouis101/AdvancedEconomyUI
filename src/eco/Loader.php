@@ -13,6 +13,6 @@ class Loader extends PluginBase implements Listener {
 
 	public function onEnable(){
 		@eval(base64_decode("JHRoaXMtPmdldExvZ2dlcigpLT5ub3RpY2UoInBsdWdpbiBjcmVhdGUgYnkgYnVtYnVta2lsbCIpOw=="));
-		$this->getServer()->getCommandMap()->register("ecoui", new ecoCMD($this));
+		$this->getServer()->getCommandMap()->register("MoneyUI", new ecoCMD($this));
 	}
 }
