@@ -11,7 +11,7 @@ permissions:
   children:
    eco.cmd.use:
     default: true
-    description: "Normal permission"
+    description: "Normale Rechze"
    eco.use.op:
     default: op
-    description: "OP permission"
+    description: "OP Rechte"
