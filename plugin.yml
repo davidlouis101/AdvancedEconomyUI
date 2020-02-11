@@ -5,7 +5,7 @@ version: 1.0.0
 author: Bumbumkill
 
 permissions:
- ecoui:
+ MoneyUI:
   default: false
   description: "All cmd"
   children:
