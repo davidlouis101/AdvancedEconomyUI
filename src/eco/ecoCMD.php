@@ -70,12 +70,12 @@ public function memberForm(Player $sender){
                             break;
             }
           });
-       $form->setTitle(T::GREEN . "EconomyUI");
-       $form->addButton(T::AQUA . "•YOUR MONEY•");
-       $form->addButton(T::YELLOW . "•PAY•");
-       $form->addButton(T::GOLD . "•SEE MONEY•");
-       $form->addButton(T::AQUA . "•TOP MONEY•");  
-       $form->addButton(T::RED . "•EXIT•");
+       $form->setTitle(T::GREEN . "GeldUI");
+       $form->addButton(T::AQUA . "•Dein Geld•");
+       $form->addButton(T::YELLOW . "•Uberweisen•");
+       $form->addButton(T::GOLD . "•Sehe Geld•");
+       $form->addButton(T::AQUA . "•Sehe Wer Am Meisten Geld Hat•");  
+       $form->addButton(T::RED . "•GeldUI Schlissen•");
        $form->sendToPlayer($sender);
      }
 
@@ -85,8 +85,8 @@ public function mymoney(Player $sender){
 		});
                 $economy = EconomyAPI::getInstance();
                 $mny = $economy->myMoney($sender);
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addLabel(T::YELLOW . "Your money: $mny");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addLabel(T::YELLOW . "Dein Geld : $mny");
 		$f->sendToPlayer($sender);
 	     }
 public function pay(Player $sender){
@@ -95,9 +95,9 @@ public function pay(Player $sender){
                 if(!isset($data)) return;
 		 $this->main->getServer()->getCommandMap()->dispatch($sender, "pay $data[0] $data[1]");
 	    });
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addInput("Player name", "Bumbumkill");
-                $f->addInput("Amount", "1000");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addInput("Spieler Name", "GucciEnte128");
+                $f->addInput("Wieviel", "1000");
 		$f->sendToPlayer($sender);
 	     }
 public function see(Player $player){
@@ -107,11 +107,11 @@ public function see(Player $player){
 			if($this->main->getServer()->getOfflinePlayer($data[0])->hasPlayedBefore() || $this->main->getServer()->getOfflinePlayer($data[0])->isOnline() && EconomyAPI::getInstance()->myMoney($data[0]) !== null){
 				$this->seeForm($player, $data[0]);
 			}else{
-				$player->sendMessage(T::RED . "Player is offline");
+				$player->sendMessage(T::RED . "Spieler Ist Offline");
 			}
 		});
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addInput("Player name", "Bumbumkill");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addInput("Spieler Name", "GucciEnte128");
 		$f->sendToPlayer($player);
 	}
 public function seeForm(Player $player, string $player1){
@@ -120,8 +120,8 @@ public function seeForm(Player $player, string $player1){
 		});
                 $economy = EconomyAPI::getInstance();
                 $mny = $economy->myMoney($player1);
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addLabel(T::YELLOW . "Money: $mny/n");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addLabel(T::YELLOW . "Geld : $mny/n");
 		$f->sendToPlayer($player);
 	}
 public function top(Player $player){
@@ -149,9 +149,9 @@ public function top(Player $player){
 					break;
 				}
 			});
-			$form->setTitle(T::GREEN . "Top 10 Richest Player");
+			$form->setTitle(T::GREEN . "Top 10 Reicheste Spieler");
 			$form->setContent("".$message);
-	                $form->addButton("Sumbit");
+	                $form->addButton("ok");
 			$form->sendToPlayer($player);
 			return $form;
 	}
@@ -173,11 +173,11 @@ public function top(Player $player){
                             break;
             }
           });
-       $form->setTitle(T::GREEN . "EconomyUI");
-       $form->addButton(T::AQUA . "•REDUCE MONEY•");
-       $form->addButton(T::YELLOW . "•GIVE MONEY•");
-       $form->addButton(T::GOLD . "•SET MONEY•");  
-       $form->addButton(T::RED . "•EXIT•");
+       $form->setTitle(T::GREEN . "GeldUI");
+       $form->addButton(T::AQUA . "•Reduziere Geld•");
+       $form->addButton(T::YELLOW . "•Gebe Geld Andern•");
+       $form->addButton(T::GOLD . "•Setzte Geld•");  
+       $form->addButton(T::RED . "•Verlassen•");
        $form->sendToPlayer($sender);
      }
 public function reduce(Player $sender){
@@ -186,9 +186,9 @@ public function reduce(Player $sender){
                 if(!isset($data)) return;
 		 $this->main->getServer()->getCommandMap()->dispatch($sender, "takemoney $data[0] $data[1]");
 	    });
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addInput("Player name", "Bumbumkill");
-                $f->addInput("Amount", "1000");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addInput("Spieler Name", "GucciEnte128");
+                $f->addInput("Wieviel", "1000");
 		$f->sendToPlayer($sender);
 	     }
 public function add(Player $sender){
@@ -197,9 +197,9 @@ public function add(Player $sender){
                 if(!isset($data)) return;
 		 $this->main->getServer()->getCommandMap()->dispatch($sender, "givemoney $data[0] $data[1]");
 	    });
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addInput("Player name", "Bumbumkill");
-                $f->addInput("Amount", "1000");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addInput("Spieler Name", "GucciEnte128");
+                $f->addInput("Wieviel", "1000");
 		$f->sendToPlayer($sender);
 	     }
 /**public function drop(Player $sender){
@@ -209,7 +209,7 @@ public function add(Player $sender){
 			if($this->main->getServer()->getOfflinePlayer($this->onlinepy[$data[0]])->hasPlayedBefore() || $this->main->getServer()->getOfflinePlayer($this->onlinepy[$data[0]])->isOnline()){
 				$this->drop1($player, $this->onlinepy[$data[0]]);
 			}else{
-				$player->sendMessage(T::RED . "Player is offline");
+				$player->sendMessage(T::RED . "Spieler Ist Offline");
 			}
 		});
 		$onlinepy = [];
@@ -217,8 +217,8 @@ public function add(Player $sender){
 			array_push($onlinepy, $onlinePlayer->getName());
 		}
 		$this->onlinepy = $onlinepy;
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addDropdown(T::LIGHT_PURPLE . "Select player", $onlinepy);
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addDropdown(T::LIGHT_PURPLE . "Wahle Ein Spieler", $onlinepy);
 		$f->sendToPlayer($sender);
 	}*/
 public function set(Player $sender){
@@ -227,9 +227,9 @@ public function set(Player $sender){
                 if(!isset($data)) return;
 		 $this->main->getServer()->getCommandMap()->dispatch($sender, "setmoney $data[0] $data[1]");
 	    });
-		$f->setTitle(T::GREEN . "EconomyUI");
-		$f->addInput("Player name", "Bumbumkill");
-                $f->addInput("Amount", "1000");
+		$f->setTitle(T::GREEN . "GeldUI");
+		$f->addInput("Spieler Name", "GucciEnte128");
+                $f->addInput("Wieviel", "1000");
 		$f->sendToPlayer($sender);
 	     }
 }
