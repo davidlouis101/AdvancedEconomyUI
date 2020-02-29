@@ -71,11 +71,11 @@ public function memberForm(Player $sender){
             }
           });
        $form->setTitle(T::GREEN . "GeldUI");
-       $form->addButton(T::AQUA . "•Dein Geld•");
-       $form->addButton(T::YELLOW . "•Uberweisen•");
-       $form->addButton(T::GOLD . "•Sehe Geld•");
-       $form->addButton(T::AQUA . "•Sehe Wer Am Meisten Geld Hat•");  
-       $form->addButton(T::RED . "•GeldUI Schlissen•");
+       $form->addButton(T::AQUA . "Dein Geld");
+       $form->addButton(T::YELLOW . "Uberweisen");
+       $form->addButton(T::GOLD . "Sehe Geld");
+       $form->addButton(T::AQUA . "Sehe Wer Am Meisten Geld Hat");  
+       $form->addButton(T::RED . "GeldUI Schlissen");
        $form->sendToPlayer($sender);
      }
 
