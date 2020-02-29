@@ -24,7 +24,7 @@ class ecoCMD extends Command implements PluginIdentifiableCommand{
 	
 	public function __construct(Loader $main){
 		$this->main = $main;
-		parent::__construct("GeldUI", "GeldSystem", "/GeldSystem", ["Geld", "GeldSystem", "GeldS"]);
+		parent::__construct("GeldUI", "GeldSystem", "/GeldSystem", ["Geld", "GeldSystem"]);
 	}
 
 public function execute(CommandSender $sender, string $label, array $args){
